@@ -2,4 +2,8 @@ node_modules/
 
 config/keys.js
 
+.env
+
+.vscode/
+
 projectNotes.txt
