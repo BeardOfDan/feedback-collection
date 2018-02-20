@@ -17,6 +17,9 @@ require('./services/passport');
 // setup authentication routes
 require('./routes/authRoutes')(app);
 
+// User Models
+require('./models/user');
+
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT} \n`);
 });
