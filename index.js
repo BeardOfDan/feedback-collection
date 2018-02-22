@@ -1,13 +1,25 @@
 const express = require('express');
 const app = express();
 
+const mongoose = require('mongoose');
+const passport = require('passport');
+const cookieSession = require('cookie-session');
+
 // set up local environment variables
 require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
 const KEYS = require('./config/keys');
 
-const mongoose = require('mongoose');
+app.use(
+  cookieSession({
+    //        30 days in milliseconds
+    'maxAge': 30 * 24 * 60 * 60 * 1000,
+    'keys': [KEYS.cookieKey]
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 mongoose.connect(KEYS.mongoURI);
 

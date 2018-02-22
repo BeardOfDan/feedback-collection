@@ -6,6 +6,20 @@ const KEYS = require('./../config/keys');
 
 const User = mongoose.model('users');
 
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((userID, done) => {
+  User.findById(userID)
+    .then((user) => {
+      done(null, user);
+    })
+    .catch((e) => {
+      console.log('\n\nError: in \'services/passport.js\'\n', e);
+    });
+});
+
 passport.use(
   new GoogleStrategy(
     {
@@ -14,14 +28,23 @@ passport.use(
       'callbackURL': '/auth/google/callback'
     }, (accessToken, refreshToken, profile, done) => {
       User.findOne({ 'googleID': profile.id })
-        .then((result) => {
-          if (result === null) { // save the new user
-            new User({ 'googleID': profile.id }).save();
-          } else { // the user exists
-            // do nothing, for now
+        .then((user) => {
+          if (user === null) { // new user
+            new User({ 'googleID': profile.id })
+              .save()
+              .then((newUser) => {
+                done(null, newUser);
+              })
+              .catch((e) => {
+                console.log('\n\nError: in \'services/passport.js\'\n', e);
+              });
+          } else { // existing user
+            done(null, user);
           }
+        })
+        .catch((e) => {
+          console.log('\n\nError: in \'services/passport.js\'\n', e);
         });
-
     }
   )
 );
