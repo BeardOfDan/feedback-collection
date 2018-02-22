@@ -1,12 +1,14 @@
 {
   "name": "collection-feedback-api",
   "version": "1.0.0",
-  "description": "The service layer for the 'feedback collection' app",
+  "description": "This app helps users to collect feedback",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "start-dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Dan Roberts",
   "license": "ISC",
@@ -15,6 +17,7 @@
     "npm": "5.0.3"
   },
   "dependencies": {
+    "concurrently": "^3.5.1",
     "cookie-session": "^2.0.0-beta.3",
     "dotenv": "^5.0.0",
     "express": "^4.16.2",

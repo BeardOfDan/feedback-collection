@@ -8,7 +8,7 @@ const cookieSession = require('cookie-session');
 // set up local environment variables
 require('dotenv').config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 const KEYS = require('./config/keys');
 
 app.use(
