@@ -11,14 +11,14 @@ const mongoose = require('mongoose');
 
 mongoose.connect(KEYS.mongoURI);
 
+// User Models
+require('./models/user');
+
 // passport configuration
 require('./services/passport');
 
 // setup authentication routes
 require('./routes/authRoutes')(app);
-
-// User Models
-require('./models/user');
 
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT} \n`);
