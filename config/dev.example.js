@@ -1,4 +1,6 @@
 
+// This file is a template for 'dev.js', which is listed in .gitignore because it has information that should not be comitted to a public repository.
+
 module.exports = {
   'googleClientID': 'Google Client ID Goes Here',
   'googleClientSecret': 'Google Client Secret Goes Here',
