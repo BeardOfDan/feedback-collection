@@ -27,25 +27,15 @@ passport.use(
       'clientSecret': KEYS.googleClientSecret,
       'callbackURL': '/auth/google/callback',
       'proxy': true
-    }, (accessToken, refreshToken, profile, done) => {
-      User.findOne({ 'googleID': profile.id })
-        .then((user) => {
-          if (user === null) { // new user
-            new User({ 'googleID': profile.id })
-              .save()
-              .then((newUser) => {
-                done(null, newUser);
-              })
-              .catch((e) => {
-                console.log('\n\nError: in \'services/passport.js\'\n', e);
-              });
-          } else { // existing user
-            done(null, user);
-          }
-        })
-        .catch((e) => {
-          console.log('\n\nError: in \'services/passport.js\'\n', e);
-        });
+    }, async (accessToken, refreshToken, profile, done) => {
+      const user = await User.findOne({ 'googleID': profile.id });
+      if (user === null) { // new user
+        const newUser = await new User({ 'googleID': profile.id });
+        await newUser.save();
+        done(null, newUser);
+      } else { // existing user
+        done(null, user);
+      }
     }
   )
 );
