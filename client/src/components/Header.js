@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class Header extends Component {
+class Header extends Component {
+  renderContent() {
+    switch (this.props.auth) {
+      case null: // pending
+        return 'Checking authentication status...';
+      case false: // not logged in
+        return 'You are currently logged out';
+      default: // logged in
+        return 'You are logged in!';
+    }
+  }
+
   render() {
     return (
       <nav>
@@ -9,12 +21,16 @@ export default class Header extends Component {
             Feedback Collector
           </a>
           <ul className="right">
-            <li>
-              <a>Login With Google</a>
-            </li>
+            {this.renderContent()}
           </ul>
         </div>
       </nav>
     );
   }
 };
+
+const mapStateToProps = (state) => {
+  return { 'auth': state.auth };
+};
+
+export default connect(mapStateToProps)(Header);
