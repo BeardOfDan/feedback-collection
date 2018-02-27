@@ -9,8 +9,10 @@ module.exports = (app) => {
     })
   );
 
-  // Utilize Google's Authenication Code
-  app.get('/auth/google/callback', passport.authenticate('google'));
+  app.get('/auth/google/callback',
+    passport.authenticate('google'), // Utilize Google's Authenication Code
+    (req, res, next) => { res.redirect('/surveys'); }
+  );
 
   app.get('/api/logout', (req, res, next) => {
     req.logout();
