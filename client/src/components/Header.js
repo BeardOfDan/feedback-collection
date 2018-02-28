@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class Header extends Component {
-  renderContent() {
+  renderLogAction() { // Log in or out
     switch (this.props.auth) {
       case null: // pending
         return undefined;
@@ -22,6 +22,7 @@ class Header extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
+          {/*Logo Button */}
           <Link
             to={this.props.auth ? '/surveys' : '/'}
             className="left brand-logo"
@@ -29,7 +30,7 @@ class Header extends Component {
             Feedback Collector
           </Link>
           <ul className="right">
-            {this.renderContent()}
+            {this.renderLogAction()}
           </ul>
         </div>
       </nav>
