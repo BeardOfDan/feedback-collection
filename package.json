@@ -6,11 +6,11 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "client": "npm run start --prefix client",
     "dev": "cross-env npm run dev-vars npm run dev-scripts",
     "dev-scripts": "concurrently \"npm run server\" \"npm run client\"",
-    "dev-vars": "REACT_APP_STRIPE_PUBLISHABLE_KEY=\"pk_test_Mi5H5OP8oODCr8O0PNtR4aC8\""
+    "dev-vars": "REACT_APP_STRIPE_PUBLISHABLE_KEY=\"pk_test_Mi5H5OP8oODCr8O0PNtR4aC8\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dan Roberts",
   "license": "ISC",
