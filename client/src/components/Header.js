@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Payments from './Payments';
 
 class Header extends Component {
   renderLogAction() { // Log in or out
@@ -12,9 +13,10 @@ class Header extends Component {
           <li><a href="/auth/google">Login With Google</a></li>
         );
       default: // logged in
-        return (
-          <li><a href="/api/logout">Logout</a></li>
-        );
+        return [ // simple hardcoded array, so simple hardcoded keys
+          <li key="0"><Payments /></li>,
+          <li key="1"><a href="/api/logout">Logout</a></li>
+        ];
     }
   }
 
