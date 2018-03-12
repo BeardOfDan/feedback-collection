@@ -6,9 +6,6 @@ const passport = require('passport');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
 
-// set up local environment variables
-require('dotenv').config();
-
 const PORT = process.env.PORT || 5000;
 const KEYS = require('./config/keys');
 
