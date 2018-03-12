@@ -1,5 +1,5 @@
 {
-  "name": "collection-feedback-api",
+  "name": "feedback-collection",
   "version": "1.0.0",
   "description": "This app helps users to collect feedback",
   "main": "index.js",
