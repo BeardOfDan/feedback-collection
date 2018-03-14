@@ -34,6 +34,9 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
   deploy:
+    machine:
+        enabled: true
+    working_directory: ~/repo
     environment:
       HEROKU_APP: "collectionfeedback"
     steps:
