@@ -2,9 +2,11 @@
 
 This application allows a user to pay for surveys to be sent out via mass emails
 
+
 ***
 
-## Environment Variables
+
+## Production Mode
 
 The following environment variables need to be set:
 
@@ -20,7 +22,9 @@ The following environment variables need to be set:
 
 **Note: 'REACT_APP_STRIPE_PUBLISHABLE_KEY' is the same as 'STRIPE_PUBLISHABLE_KEY'**
 
+
 ***
+
 
 ## Development Mode:
 
