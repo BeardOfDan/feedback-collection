@@ -34,10 +34,8 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
 deployment:
-  production:
+  staging:
     branch: master
     heroku:
-      appname: feedbackcollection
-
-
+      appname: feedbackcollection # appname must not include upper-case characters
 
