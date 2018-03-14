@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
     "dev": "cross-env npm run dev-vars npm run dev-scripts",
     "dev-vars": "REACT_APP_STRIPE_PUBLISHABLE_KEY=\"pk_test_Mi5H5OP8oODCr8O0PNtR4aC8\"",
     "dev-scripts": "concurrently \"npm run server\" \"npm run client\"",
