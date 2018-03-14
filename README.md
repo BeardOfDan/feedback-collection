@@ -1,10 +1,10 @@
-#Feedback Collection
+# Feedback Collection
 
 This application allows a user to pay for surveys to be sent out via mass emails
 
-...
+***
 
-##Environment Variables
+## Environment Variables
 
 The following environment variables need to be set:
 
