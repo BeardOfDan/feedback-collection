@@ -33,3 +33,11 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
+  deploy:
+    environment:
+      HEROKU_APP: "collectionfeedback"
+    steps:
+      - run:
+          command: |
+            git push https://git.heroku.com/feedbackcollection.git master
+            heroku restart
