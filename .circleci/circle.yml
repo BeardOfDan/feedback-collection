@@ -1,0 +1,5 @@
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: feedbackcollection # appname must not include upper-case characters
