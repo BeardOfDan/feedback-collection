@@ -28,7 +28,7 @@ jobs:
 
       - run: yarn install
 
-      - run: yarn build
+      - run: npm run build --prefix client
 
       - save_cache:
           paths:
