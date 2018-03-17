@@ -20,8 +20,8 @@ The following environment variables need to be set:
   * STRIPE_PUBLISHABLE_KEY
   * REACT_APP_STRIPE_PUBLISHABLE_KEY
 
-_**Note:** **'REACT_APP_STRIPE_PUBLISHABLE_KEY'** is the same as **'STRIPE_PUBLISHABLE_KEY'**_
-
+_Note: **'REACT_APP_STRIPE_PUBLISHABLE_KEY'** is the same as **'STRIPE_PUBLISHABLE_KEY'**_
+      _The duplication is for the sake of development mode_
 
 ***
 
