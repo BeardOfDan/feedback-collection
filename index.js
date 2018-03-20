@@ -23,8 +23,9 @@ app.use(passport.session());
 
 mongoose.connect(KEYS.mongoURI);
 
-// User Models
-require('./models/user');
+// Mongoose Models
+require('./models/User');
+require('./models/Survey');
 
 // passport configuration
 require('./services/passport');
