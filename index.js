@@ -30,11 +30,10 @@ require('./models/Survey');
 // passport configuration
 require('./services/passport');
 
-// setup authentication routes
+// Routes
 require('./routes/authRoutes')(app);
-
-// setup Stripe routes
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Ensures that express knows to use the 'build' of the client side code
