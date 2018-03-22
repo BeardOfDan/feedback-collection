@@ -18,8 +18,8 @@ module.exports = (app) => {
       body,
       subject,
       'recipients': recipientsArray,
-      '_user': req.user.id,
-      'dateSent': Date.now()
+      'dateSent': Date.now(),
+      '_user': req.user.id
     });
   });
 };

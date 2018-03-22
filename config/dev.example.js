@@ -7,5 +7,6 @@ module.exports = {
   'mongoURI': `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}`,
   'cookieKey': 'Cookie Key Goes Here',
   'stripePublishableKey': 'Public Key Goes Here',
-  'stripeSecretKey': 'Secret Key Goes Here'
+  'stripeSecretKey': 'Secret Key Goes Here',
+  'sendGridKey': 'Key Goes Here'
 };
