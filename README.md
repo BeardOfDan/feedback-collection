@@ -29,4 +29,3 @@ _Note: **'REACT_APP_STRIPE_PUBLISHABLE_KEY'** is the same as **'STRIPE_PUBLISHAB
 
 You must create the files '.env' and 'config/dev.js' to run the program in development mode. Each has an example file included.
 
-
