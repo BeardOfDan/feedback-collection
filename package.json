@@ -13,6 +13,10 @@
     "client": "npm run start --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BeardOfDan/feedback-collection"
+  },
   "author": "Dan Roberts",
   "license": "ISC",
   "engines": {
