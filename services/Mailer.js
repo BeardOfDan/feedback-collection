@@ -6,6 +6,7 @@ module.exports = class Mailer extends helper.Mail {
   constructor({ subject, recipients }, content) {
     super();
 
+    this.sgAPI = sendGrid(KEYS.sendGridKey);
     this.from_email = new helper.Email('DoNotReply@FeedbackCollection.com');
     this.subject = subject;
     this.body = new helper.Content('text/html', content);
@@ -38,5 +39,16 @@ module.exports = class Mailer extends helper.Mail {
     });
 
     this.addPersonalization(personalize);
+  }
+
+  async send() {
+    const request = this.sgAPI.emptyRequest({
+      'method': 'POST',
+      'path': '/v3/mail/send',
+      'body': this.toJSON()
+    });
+
+    const response = await this.sgAPI.API(request);
+    return response;
   }
 };
