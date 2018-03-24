@@ -19,7 +19,7 @@ module.exports = class Mailer extends helper.Mail {
 
   formatAddresses(recipients) {
     return recipients.map(({ email }) => {
-      return new helperEmail(email);
+      return new helper.Email(email);
     });
   }
 
