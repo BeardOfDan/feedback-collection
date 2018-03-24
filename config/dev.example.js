@@ -8,5 +8,6 @@ module.exports = {
   'cookieKey': 'Cookie Key Goes Here',
   'stripePublishableKey': 'Stripe Public Key Goes Here',
   'stripeSecretKey': 'Stripe Secret Key Goes Here',
-  'sendGridKey': 'Send Grid Key Goes Here'
+  'sendGridKey': 'Send Grid Key Goes Here',
+  'redirectDomain': 'http://localhost:3000'
 };
