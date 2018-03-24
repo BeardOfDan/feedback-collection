@@ -8,7 +8,7 @@ const Mailer = require('./../services/Mailer');
 const surveyTemplate = require('./../services/emailTemplates/surveyTemplate');
 
 module.exports = (app) => {
-  app.post('/api/surveys', requireLogin, requireCredits, (req, res, next) => {
+  app.post('/api/surveys', requireLogin, requireCredits, async (req, res, next) => {
     const { title, subject, body, recipients } = req.body;
 
     // translates a csv string into an array of objects
@@ -25,7 +25,23 @@ module.exports = (app) => {
       '_user': req.user.id
     });
 
-    const mailer = new Mailer(survey, surveyTemplate(survey));
-    mailer.send();
-  });
+    try {
+      // Tell Send Grid to send the emails
+      const mailer = new Mailer(survey, surveyTemplate(survey));
+      await mailer.send();
+
+      // Save the survey to the DB
+      await survey.save();
+
+      // Deduct a credit for payment
+      req.user.credits -= 1;
+
+      // Save the new credit balance
+      const user = await req.user.save();
+
+      res.send(user);
+    } catch (e) {
+      res.status(422).send(e);
+    }
+  }); // end of POST '/api/surveys'
 };
