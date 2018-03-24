@@ -25,9 +25,7 @@ module.exports = (app) => {
       '_user': req.user.id
     });
 
-    // save the survey instance
-
-    // send the email
     const mailer = new Mailer(survey, surveyTemplate(survey));
+    mailer.send();
   });
 };
