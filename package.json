@@ -9,7 +9,7 @@
     "dev": "cross-env npm run dev-vars npm run dev-scripts",
     "dev-vars": "REACT_APP_STRIPE_PUBLISHABLE_KEY=\"pk_test_Mi5H5OP8oODCr8O0PNtR4aC8\"",
     "dev-scripts": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "nodemon index.js",
+    "server": "nodemon index.js --ignore client",
     "client": "npm run start --prefix client",
     "prepublish": "npm install --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1"
